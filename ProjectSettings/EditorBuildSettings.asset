@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Security room.unity
+    guid: 10a35459bc3477f42892a3e51ab01785
+  - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Hallway.unity
+    guid: cfc570bb03ea4464bb1a0cb3efe2b368
   m_configObjects: {}
