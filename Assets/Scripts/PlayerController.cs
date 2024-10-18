@@ -61,20 +61,78 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene("Scenes/Hallway");
 
                 startingPosition = new Vector2(-8.5f, -0.25f);
-                StartCoroutine(ChangePosition(2f));
+                ChangePosition();
                 break;
             case "ExitHallwayToStart":
                 SceneManager.LoadScene("Scenes/Start");
 
                 startingPosition = new Vector2(8.5f, -0.25f);
-                StartCoroutine(ChangePosition(2f));
+                ChangePosition();
+                break;
+            case "ExitHallwayToSewerStart":
+                SceneManager.LoadScene("Scenes/SewerStart");
+
+                startingPosition = new Vector2(-8.5f, -0.25f);
+                ChangePosition();
+                break;
+            case "ExitSewerStartToHallway":
+                SceneManager.LoadScene("Scenes/Hallway");
+
+                startingPosition = new Vector2(8.5f, -0.25f);
+                ChangePosition();
+                break;
+            case "ExitSewerStartToSewerStart2":
+                SceneManager.LoadScene("Scenes/SewerStart2");
+
+                startingPosition = new Vector2(-8.5f, -1f);
+                ChangePosition();
+                break;
+            case "ExitSewerStartToEndStart":
+                SceneManager.LoadScene("Scenes/EndStart");
+
+                startingPosition = new Vector2(6.5f, -3f);
+                ChangePosition();
+                break;
+            case "ExitEndStartToSewerStart":
+                SceneManager.LoadScene("Scenes/SewerStart");
+
+                startingPosition = new Vector2(-6.5f, -3f);
+                ChangePosition();
+                break;
+            case "ExitEndStartToEnd":
+                SceneManager.LoadScene("Scenes/End");
+
+                startingPosition = new Vector2(7.5f, -6f);
+                ChangePosition();
+                break;
+            case "ExitEndToEndStart":
+                SceneManager.LoadScene("Scenes/EndStart");
+
+                startingPosition = new Vector2(-5.5f, 1f);
+                ChangePosition();
+                break;
+            case "ExitSewerStart2ToSewerStart":
+                SceneManager.LoadScene("Scenes/SewerStart");
+
+                startingPosition = new Vector2(8.5f, -1.5f);
+                ChangePosition();
+                break;
+            case "ExitSewerStart2ToSewerFlood":
+                SceneManager.LoadScene("Scenes/SewerFlood");
+
+                startingPosition = new Vector2(4.5f, 4f);
+                ChangePosition();
+                break;
+            case "ExitSewerFloodToSewerStart2":
+                SceneManager.LoadScene("Scenes/SewerStart2");
+
+                startingPosition = new Vector2(6.5f, -4f);
+                ChangePosition();
                 break;
         }
     }
-    IEnumerator ChangePosition(float delay)
+    void ChangePosition()
     {
-        // Wait for the specified number of seconds
-        yield return new WaitForSeconds(delay);
 
         transform.position = startingPosition;
     }

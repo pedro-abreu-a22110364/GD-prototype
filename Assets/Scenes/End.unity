@@ -2530,7 +2530,7 @@ GameObject:
   - component: {fileID: 1026337448}
   m_Layer: 0
   m_Name: SceneSwitcher
-  m_TagString: ExitStartToHallway
+  m_TagString: ExitEndToEndStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

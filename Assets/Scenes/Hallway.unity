@@ -2341,8 +2341,8 @@ GameObject:
   - component: {fileID: 1717896494}
   - component: {fileID: 1717896493}
   m_Layer: 0
-  m_Name: SceneSwitcher (1)
-  m_TagString: ExitStartToHallway
+  m_Name: SceneSwitcher2
+  m_TagString: ExitHallwayToSewerStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

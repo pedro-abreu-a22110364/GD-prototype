@@ -6,6 +6,16 @@ TagManager:
   tags:
   - ExitHallwayToStart
   - ExitStartToHallway
+  - ExitHallwayToSewerStart
+  - ExitSewerStart2ToSewerFlood
+  - ExitSewerStart2ToSewerStart
+  - ExitSewerStartToSewerStart2
+  - ExitSewerStartToHallway
+  - ExitSewerStartToEndStart
+  - ExitSewerFloodToSewerStart2
+  - ExitEndStartToSewerStart
+  - ExitEndStartToEnd
+  - ExitEndToEndStart
   layers:
   - Default
   - TransparentFX
