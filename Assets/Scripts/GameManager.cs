@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,9 +41,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void InteractWithObject(GameObject interactableObject, Sprite[] spriteArray)
+    public void InteractWithObject(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray)
     {
-        switch (interactableObject.name)
+        switch (actionObject.name)
         {
             case "Chest":
                 isChestOpen = true;
@@ -58,17 +59,17 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
-        SetCorrectObjectSprites(interactableObject, spriteArray);
+        SetCorrectObjectSprites(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray);
     }
 
-    public void SetCorrectObjectSprites(GameObject interactableObject, Sprite[] spriteArray)
+    public void SetCorrectObjectSprites(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray)
     {
-        switch (interactableObject.name)
+        switch (actionObject.name)
         {
             case "Chest":
                 if (isChestOpen)
                 {
-                    OpenChest(interactableObject, spriteArray);
+                    OpenChest(actionObject, actionObjectSpriteArray);
                 }
                 break;
             case "Lever":
@@ -76,32 +77,47 @@ public class GameManager : MonoBehaviour
                 {
                     if (isLeverBroken)
                     {
-                        BreakLever(interactableObject, spriteArray);
+                        BreakLever(actionObject, actionObjectSpriteArray);
                     }
                     else 
                     { 
-                        PullLever(interactableObject, spriteArray); 
+                        PullLever(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray); 
                     }
                 }
                 break;
         }
     }
 
-    public void OpenChest(GameObject chest, Sprite[] spriteArray)
+    public void OpenChest(GameObject chest, Sprite[] chestSpriteArray)
     {
-        chest.GetComponent<SpriteRenderer>().sprite = spriteArray[0];
+        chest.GetComponent<SpriteRenderer>().sprite = chestSpriteArray[0];
     }
 
-    public void PullLever(GameObject lever, Sprite[] spriteArray)
+    public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
     {
-        lever.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = spriteArray[0];
-        lever.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = spriteArray[1];
+        lever.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
+        lever.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[1];
         //hasHammer = true;
+
+        door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[0];
+        door.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[1];
+        door.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[2];
+        door.transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[3];
+        door.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[4];
+        door.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[5];
+
+        DrainRoom();
     }
 
-    public void BreakLever(GameObject lever, Sprite[] spriteArray)
+    public void BreakLever(GameObject lever, Sprite[] leverSpriteArray)
     {
-        lever.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = spriteArray[2];
-        lever.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = spriteArray[3];
+        lever.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[2];
+        lever.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[3];
+    }
+
+    public void DrainRoom()
+    {
+        Destroy(GameObject.Find("Water"));
+        //GameObject.Find("Water").GetComponent<Tilemap>().ClearAllTiles();
     }
 }

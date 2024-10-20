@@ -6,13 +6,17 @@ public class UserInteraction : MonoBehaviour
 {
     [SerializeField] private bool triggerActive = false;
 
-    public GameObject interactableObject;
+    public GameObject actionObject;
 
-    public Sprite[] spriteArray;
+    public GameObject reactionObject;
+
+    public Sprite[] actionObjectSpriteArray;
+
+    public Sprite[] reactionObjectSpriteArray;
 
     public void Start()
     {
-        GameManager.Instance.SetCorrectObjectSprites(interactableObject, spriteArray);
+        GameManager.Instance.SetCorrectObjectSprites(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +39,7 @@ public class UserInteraction : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
-            GameManager.Instance.InteractWithObject(interactableObject, spriteArray);
+            GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray);
         }
     }
 }
