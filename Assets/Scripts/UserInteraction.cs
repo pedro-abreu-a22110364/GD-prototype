@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestInteraction : MonoBehaviour
+public class UserInteraction : MonoBehaviour
 {
     [SerializeField] private bool triggerActive = false;
 
-    public GameObject chest;
+    public GameObject interactableObject;
 
     public Sprite[] spriteArray;
 
-    public static bool isChestOpen = false;     // not very good solution but it will do for now
-
     public void Start()
     {
-        if (isChestOpen)
-        {
-            OpenChest();
-        }
+        GameManager.Instance.SetCorrectObjectSprites(interactableObject, spriteArray);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -38,15 +33,9 @@ public class ChestInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (!isChestOpen && triggerActive && Input.GetKeyDown(KeyCode.E))
+        if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
-            isChestOpen = true;
-            OpenChest();
+            GameManager.Instance.InteractWithObject(interactableObject, spriteArray);
         }
-    }
-
-    public void OpenChest()
-    {
-        chest.GetComponent<SpriteRenderer>().sprite = spriteArray[1];
     }
 }
