@@ -95,8 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
     {
-        lever.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
-        lever.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[1];
+        lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
         //hasHammer = true;
 
         door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[0];
