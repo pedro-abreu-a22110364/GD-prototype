@@ -61,13 +61,15 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene("Scenes/Hallway");
 
                 startingPosition = new Vector2(-8.5f, -0.25f);
-                StartCoroutine(ChangePosition(2f));
+                transform.position = startingPosition;
+                //StartCoroutine(ChangePosition(2f));
                 break;
             case "ExitHallwayToStart":
                 SceneManager.LoadScene("Scenes/Start");
 
                 startingPosition = new Vector2(8.5f, -0.25f);
-                StartCoroutine(ChangePosition(2f));
+                transform.position = startingPosition;
+                //StartCoroutine(ChangePosition(2f));
                 break;
         }
     }
@@ -75,7 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         // Wait for the specified number of seconds
         yield return new WaitForSeconds(delay);
-
+        
         transform.position = startingPosition;
     }
 
