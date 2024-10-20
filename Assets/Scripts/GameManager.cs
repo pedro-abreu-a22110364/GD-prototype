@@ -98,12 +98,10 @@ public class GameManager : MonoBehaviour
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
         hasHammer = true;
 
-        door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[0];
-        door.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[1];
-        door.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[2];
-        door.transform.GetChild(3).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[3];
-        door.transform.GetChild(4).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[4];
-        door.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[5];
+        for (int i = 0; i < door.transform.childCount; i++)
+        {
+            door.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+        }
 
         DrainRoom();
     }
