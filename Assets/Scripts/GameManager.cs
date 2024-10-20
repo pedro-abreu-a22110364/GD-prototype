@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
     {
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
-        //hasHammer = true;
+        hasHammer = true;
 
         door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[0];
         door.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[1];
@@ -110,8 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void BreakLever(GameObject lever, Sprite[] leverSpriteArray)
     {
-        lever.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[2];
-        lever.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[3];
+        lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[1];
     }
 
     public void DrainRoom()
