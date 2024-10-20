@@ -118,6 +118,5 @@ public class GameManager : MonoBehaviour
     public void DrainRoom()
     {
         Destroy(GameObject.Find("Water"));
-        //GameObject.Find("Water").GetComponent<Tilemap>().ClearAllTiles();
     }
 }
