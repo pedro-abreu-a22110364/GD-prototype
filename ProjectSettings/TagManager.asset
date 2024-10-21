@@ -17,6 +17,7 @@ TagManager:
   - ExitEndStartToEnd
   - ExitEndToEndStart
   - ExitSecurityRoomToStart
+  - Character
   layers:
   - Default
   - TransparentFX

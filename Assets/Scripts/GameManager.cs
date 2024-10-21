@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public bool hasHammer { get; set; }
     public bool isHomeDoorOpen { get; set; }
     public bool isHomeDoorUnlocked { get; set; }
+    public bool isDialogueActive { get; set; }
     public HashSet<string> inventory { get; set; } = new HashSet<string>();
 
     #region Singleton
@@ -174,5 +175,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(destroy);
         }
+    }
+
+    public void ActivateDialogue()
+    {
+        if (!isDialogueActive)
+        {
+            isDialogueActive = true;
+            Dialogue.Instance.StartDialogue();
+            Debug.Log("Activating Dialogue");
+        }
+    }
+
+    public void DeactivateDialogue()
+    {
+        isDialogueActive = false;
+        Debug.Log("Deactivating Dialogue");
     }
 }

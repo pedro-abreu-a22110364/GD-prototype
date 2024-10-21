@@ -37,7 +37,14 @@ public class UserInteraction : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
-            GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray, storedObjects);
+            if (actionObject.CompareTag("Character"))
+            {
+                GameManager.Instance.ActivateDialogue();
+            }
+            else 
+            {
+                GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray, storedObjects);
+            }
         }
     }
 }
