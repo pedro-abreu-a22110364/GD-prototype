@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    public Vector2 startingPosition = new Vector2(-7.5f, -2);
+    public Vector2 startingPosition = new Vector2(-10.5f, 0.5f);
 
     private void Start()
     {
@@ -57,6 +57,12 @@ public class PlayerController : MonoBehaviour
     {
         switch (collision.tag)
         {
+            case "SecurityRoomToStart":
+                SceneManager.LoadScene("Scenes/Start");
+
+                startingPosition = new Vector2(-7.5f, -2);
+                ChangePosition();
+                break;
             case "ExitStartToHallway":
                 SceneManager.LoadScene("Scenes/Hallway");
 
@@ -133,7 +139,6 @@ public class PlayerController : MonoBehaviour
     }
     void ChangePosition()
     {
-
         transform.position = startingPosition;
     }
 

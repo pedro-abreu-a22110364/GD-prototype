@@ -7,12 +7,10 @@ public class UserInteraction : MonoBehaviour
     [SerializeField] private bool triggerActive = false;
 
     public GameObject actionObject;
-
     public GameObject reactionObject;
-
     public Sprite[] actionObjectSpriteArray;
-
     public Sprite[] reactionObjectSpriteArray;
+    public string[] storedObjects;
 
     public void Start()
     {
@@ -39,7 +37,7 @@ public class UserInteraction : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
-            GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray);
+            GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray, storedObjects);
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 using UnityEngine.Tilemaps;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     public bool isLeverPulled { get; set; }
     public bool isLeverBroken { get; set; }
     public bool hasHammer { get; set; }
+    public bool isHomeDoorOpen { get; set; }
+    public bool isHomeDoorUnlocked { get; set; }
+    public HashSet<string> inventory { get; set; } = new HashSet<string>();
 
     #region Singleton
     public static GameManager Instance
@@ -41,21 +45,36 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void InteractWithObject(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray)
+    public void InteractWithObject(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray, string[] storedObjects)
     {
+        inventory.UnionWith(storedObjects); // Add stored objects to inventory
+
         switch (actionObject.name)
         {
             case "Chest":
                 isChestOpen = true;
                 break;
             case "Lever":
-                if (isLeverPulled && hasHammer)
+                if (isLeverPulled && inventory.Contains("hammer"))
                 {
                     isLeverBroken = true;
+                    inventory.Remove("hammer");
                 }
                 else
                 {
                     isLeverPulled = true;
+                }
+                break;
+            case "HomeDoor":
+                if (isHomeDoorUnlocked)
+                {
+                    isHomeDoorOpen = true;
+                    reactionObject.transform.position += new Vector3(-0.3f, 0);
+                }
+                else if(inventory.Contains("homeDoorKey"))
+                {
+                    isHomeDoorUnlocked = true;
+                    inventory.Remove("homeDoorKey");
                 }
                 break;
         }
@@ -85,24 +104,30 @@ public class GameManager : MonoBehaviour
                     }
                 }
                 break;
+            case "HomeDoor":
+                if (isHomeDoorUnlocked)
+                {
+                    OpenLock(reactionObject);
+                    if (isHomeDoorOpen)
+                    {
+                        OpenDoor(actionObject, actionObjectSpriteArray);
+                    }
+                }
+                break;
         }
     }
 
     public void OpenChest(GameObject chest, Sprite[] chestSpriteArray)
     {
         chest.GetComponent<SpriteRenderer>().sprite = chestSpriteArray[0];
+        hasHammer = true;
     }
 
     public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
     {
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
-        hasHammer = true;
 
-        for (int i = 0; i < door.transform.childCount; i++)
-        {
-            door.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
-        }
-
+        OpenDoor(door, doorSpriteArray);
         DrainRoom();
     }
 
@@ -114,6 +139,18 @@ public class GameManager : MonoBehaviour
     public void DrainRoom()
     {
         Destroy(GameObject.Find("Water"));
-        //GameObject.Find("Water").GetComponent<Tilemap>().ClearAllTiles();
+    }
+
+    public void OpenDoor(GameObject door, Sprite[] doorSpriteArray)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            door.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+        }
+        Destroy(GameObject.Find("HomeDoorBoundary"));
+    }
+    public void OpenLock(GameObject padlock)
+    {
+        Destroy(padlock);
     }
 }
