@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
                 if (isHomeDoorUnlocked)
                 {
                     isHomeDoorOpen = true;
-                    reactionObject.transform.position += new Vector3(-0.3f, 0);
+                    actionObject.transform.position += new Vector3(-0.3f, 0);
                 }
                 else if(inventory.Contains("homeDoorKey"))
                 {
@@ -120,37 +120,59 @@ public class GameManager : MonoBehaviour
     public void OpenChest(GameObject chest, Sprite[] chestSpriteArray)
     {
         chest.GetComponent<SpriteRenderer>().sprite = chestSpriteArray[0];
-        hasHammer = true;
+        DeleteObject("ChestUIArea");
     }
 
     public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
     {
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[0];
 
-        OpenDoor(door, doorSpriteArray);
+        CloseDoor(door, doorSpriteArray);
         DrainRoom();
     }
 
     public void BreakLever(GameObject lever, Sprite[] leverSpriteArray)
     {
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[1];
+        DeleteObject("LeverUIArea");
     }
 
     public void DrainRoom()
     {
-        Destroy(GameObject.Find("Water"));
+        DeleteObject("Water");
     }
 
     public void OpenDoor(GameObject door, Sprite[] doorSpriteArray)
     {
-        for (int i = 0; i < 2; i++)
+        GameObject doorParts = GameObject.Find(door.name + "Parts");
+        for (int i = 0; i < doorParts.transform.childCount; i++)
         {
-            door.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+            doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
         }
-        Destroy(GameObject.Find("HomeDoorBoundary"));
+        DeleteObject("HomeDoorBoundary");
+        DeleteObject("HomeDoorUIArea");
+    }
+
+    public void CloseDoor(GameObject door, Sprite[] doorSpriteArray)
+    {
+        GameObject doorParts = GameObject.Find(door.name + "Parts");
+        for (int i = 0; i < doorParts.transform.childCount; i++)
+        {
+            doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+        }
     }
     public void OpenLock(GameObject padlock)
     {
         Destroy(padlock);
+    }
+
+    public void DeleteObject(string objName)
+    {
+        GameObject destroy = GameObject.Find(objName);
+
+        if (destroy != null)
+        {
+            Destroy(destroy);
+        }
     }
 }
