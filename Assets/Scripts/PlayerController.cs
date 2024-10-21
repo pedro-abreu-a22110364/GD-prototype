@@ -27,25 +27,26 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
-
-        if (input != Vector2.zero)
+        if(!GameManager.Instance.IsDialogueActive())
         {
-            lastMove = input;
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
 
-            animator.SetFloat("moveX", input.x);
-            animator.SetFloat("moveY", input.y);
+            if (input != Vector2.zero)
+            {
+                lastMove = input;
+
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+            }
+            else
+            {
+                animator.SetFloat("moveX", lastMove.x);
+                animator.SetFloat("moveY", lastMove.y);
+            }
+
+            animator.SetFloat("speed", input.sqrMagnitude);
         }
-        else
-        {
-            animator.SetFloat("moveX", lastMove.x);
-            animator.SetFloat("moveY", lastMove.y);
-        }
-
-        animator.SetFloat("speed", input.sqrMagnitude);
-
     }
 
     private void FixedUpdate()

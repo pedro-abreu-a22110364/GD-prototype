@@ -183,13 +183,15 @@ public class GameManager : MonoBehaviour
         {
             isDialogueActive = true;
             Dialogue.Instance.StartDialogue();
-            Debug.Log("Activating Dialogue");
         }
     }
 
     public void DeactivateDialogue()
     {
         isDialogueActive = false;
-        Debug.Log("Deactivating Dialogue");
+    }
+    public bool IsDialogueActive()
+    {
+        return isDialogueActive;
     }
 }
