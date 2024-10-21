@@ -218,6 +218,8 @@ MonoBehaviour:
   actionObjectSpriteArray:
   - {fileID: -1663325373, guid: 2bd8817f66f07864a92f04cdf83321b1, type: 3}
   reactionObjectSpriteArray: []
+  storedObjects:
+  - hammer
 --- !u!1 &162286289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,6 +4983,7 @@ MonoBehaviour:
   - {fileID: 1369117149, guid: 15e5151610a636149a4c474376e94b81, type: 3}
   - {fileID: -1576293914, guid: 15e5151610a636149a4c474376e94b81, type: 3}
   - {fileID: 1161861337, guid: 15e5151610a636149a4c474376e94b81, type: 3}
+  storedObjects: []
 --- !u!61 &550984510
 BoxCollider2D:
   m_ObjectHideFlags: 0
