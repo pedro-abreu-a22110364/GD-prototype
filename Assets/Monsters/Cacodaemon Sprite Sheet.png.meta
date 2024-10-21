@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 51efab4f515394a47912ba7b581ebdb6
+guid: b7f3c4b378dad62488042000290c806e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lever-Shee2t_0
+      name: Cacodaemon Sprite Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7cc5e0d8f06dc948b2106ab089b6bf6
-      internalID: 451787595
+      spriteID: 72d6cf2868ffa44438429395f30bc23a
+      internalID: -1580324819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_1
+      name: Cacodaemon Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a31c1f42d1503408dd6d24a7d54c02
-      internalID: 1663714903
+      spriteID: d20aa673470800e49bdc8ce50dc01781
+      internalID: -997225488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_2
+      name: Cacodaemon Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d48151d445469d2439872bad0367fa87
-      internalID: -1529833806
+      spriteID: a7da3da239b2d2d42a04486f25b8f9e6
+      internalID: -775734767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_3
+      name: Cacodaemon Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 32
-        width: 32
-        height: 32
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a27762a42d4f3344b52b98eab0e70af
-      internalID: 2014230340
+      spriteID: 79143767d1421464baf5e6eac25ee074
+      internalID: -757508931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_4
+      name: Cacodaemon Sprite Sheet_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 32
-        width: 32
-        height: 32
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,41 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee89eb4446c0ac842bac06fc40322cce
-      internalID: -1503299044
+      spriteID: 2b42319ad2063c2498275bbf745773c8
+      internalID: -955277299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_5
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de933db53cdce0448bfbead070c27d26
-      internalID: 1731037493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_6
+      name: Cacodaemon Sprite Sheet_5
       rect:
         serializedVersion: 2
         x: 320
-        y: 32
-        width: 32
-        height: 32
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +216,230 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8702ceab6bed4ad46b931a3ea6669da1
-      internalID: 1657686666
+      spriteID: a205ba20a0810114db7a26c564eb711e
+      internalID: -1138466057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_7
+      name: Cacodaemon Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8fc45a50012d54da59176cb653c082
+      internalID: 1090325304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c941307a30c645c4181e64781bfc6416
+      internalID: -380805877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9305569436c4d3247bff4eb1ed6eb605
+      internalID: 1898371835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2c52b1872698948b4a37a772a2bc99
+      internalID: -164783289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86543bc062831047a6a6afc64bd5b8a
+      internalID: 463303846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6f5b5c53d4c904f9abe8321c56d31d
+      internalID: -841952851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0be02fac7b642249a107f8f17400752
+      internalID: 1006903582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783be275296a2604f9efb0fa4c3eab2a
+      internalID: -1067246618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f76e16c38880c849959371d8c6e8f48
+      internalID: -1355556026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f354682e15eb24a88fdb6c92a0887e
+      internalID: -616047350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cacodaemon Sprite Sheet_16
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,41 +447,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d17fc9853dc2df499155be878b6b9e3
-      internalID: -431889671
+      spriteID: 87d24ef91ec465c4a8e84c71d197fde6
+      internalID: 557541246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2c45905eb099cc4fa5e0c0cc644e26d
-      internalID: -871908771
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_9
+      name: Cacodaemon Sprite Sheet_17
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,41 +468,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5e4dd598bbac3f4a9bee5098b2533bf
-      internalID: 2365630
+      spriteID: df95ac95a4728504c86b486a1af3597e
+      internalID: 1584285086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_10
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a95c17a6793b1094591b66aef4c4fa0c
-      internalID: -1169449013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_11
+      name: Cacodaemon Sprite Sheet_18
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,41 +489,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e2c0b3e0f41dd4085518f4297633d3
-      internalID: 1725798285
+      spriteID: 34b4f1ebe542d984699ea8849665602d
+      internalID: 835471678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_12
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e97ac7b858471046b700779ff28a12c
-      internalID: 532638600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_13
+      name: Cacodaemon Sprite Sheet_19
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,41 +510,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f8e196b7e353be468cc729670db5c3a
-      internalID: 1567562617
+      spriteID: 1ab7661ca560d8e45bc31c680dd446eb
+      internalID: 1253615222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_14
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d7ecd24ccb94b447851d75f57635ecb
-      internalID: -1881601479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_15
+      name: Cacodaemon Sprite Sheet_20
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,41 +531,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c288a1bc4653c42a254e5d72e42a57
-      internalID: 1402841212
+      spriteID: e39196ad55404c1499061d259215843e
+      internalID: 1181950815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_16
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93e2c239201d8954cabd6e1a5912c703
-      internalID: 1404533054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_17
+      name: Cacodaemon Sprite Sheet_21
       rect:
         serializedVersion: 2
         x: 320
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,41 +552,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84bc8a136c073bb45b2531393d97e29b
-      internalID: -1303905900
+      spriteID: bbe3a89723ace1243acc6957540cf42d
+      internalID: -1934338937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_18
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22fb14d366b239e4dbdecf2b9fcbe77a
-      internalID: 807776292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lever-Shee2t_19
+      name: Cacodaemon Sprite Sheet_22
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -523,20 +573,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7aae63f3f6ebe940b902f2681a07d37
-      internalID: 191895103
+      spriteID: a4535c0804f9fa3468cf20dc527b8c61
+      internalID: -1297713335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lever-Shee2t_20
+      name: Cacodaemon Sprite Sheet_23
       rect:
         serializedVersion: 2
-        x: 416
+        x: 448
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,8 +594,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3fe4e7a13a31934c8dbf1d23e1c17e4
-      internalID: -235868713
+      spriteID: 721cf9358cd40a447993712443b9004f
+      internalID: 1533733684
       vertices: []
       indices: 
       edges: []
@@ -561,27 +611,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lever-Shee2t_0: 451787595
-      Lever-Shee2t_1: 1663714903
-      Lever-Shee2t_10: -1169449013
-      Lever-Shee2t_11: 1725798285
-      Lever-Shee2t_12: 532638600
-      Lever-Shee2t_13: 1567562617
-      Lever-Shee2t_14: -1881601479
-      Lever-Shee2t_15: 1402841212
-      Lever-Shee2t_16: 1404533054
-      Lever-Shee2t_17: -1303905900
-      Lever-Shee2t_18: 807776292
-      Lever-Shee2t_19: 191895103
-      Lever-Shee2t_2: -1529833806
-      Lever-Shee2t_20: -235868713
-      Lever-Shee2t_3: 2014230340
-      Lever-Shee2t_4: -1503299044
-      Lever-Shee2t_5: 1731037493
-      Lever-Shee2t_6: 1657686666
-      Lever-Shee2t_7: -431889671
-      Lever-Shee2t_8: -871908771
-      Lever-Shee2t_9: 2365630
+      Cacodaemon Sprite Sheet_0: -1580324819
+      Cacodaemon Sprite Sheet_1: -997225488
+      Cacodaemon Sprite Sheet_10: 463303846
+      Cacodaemon Sprite Sheet_11: -841952851
+      Cacodaemon Sprite Sheet_12: 1006903582
+      Cacodaemon Sprite Sheet_13: -1067246618
+      Cacodaemon Sprite Sheet_14: -1355556026
+      Cacodaemon Sprite Sheet_15: -616047350
+      Cacodaemon Sprite Sheet_16: 557541246
+      Cacodaemon Sprite Sheet_17: 1584285086
+      Cacodaemon Sprite Sheet_18: 835471678
+      Cacodaemon Sprite Sheet_19: 1253615222
+      Cacodaemon Sprite Sheet_2: -775734767
+      Cacodaemon Sprite Sheet_20: 1181950815
+      Cacodaemon Sprite Sheet_21: -1934338937
+      Cacodaemon Sprite Sheet_22: -1297713335
+      Cacodaemon Sprite Sheet_23: 1533733684
+      Cacodaemon Sprite Sheet_3: -757508931
+      Cacodaemon Sprite Sheet_4: -955277299
+      Cacodaemon Sprite Sheet_5: -1138466057
+      Cacodaemon Sprite Sheet_6: 1090325304
+      Cacodaemon Sprite Sheet_7: -380805877
+      Cacodaemon Sprite Sheet_8: 1898371835
+      Cacodaemon Sprite Sheet_9: -164783289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
