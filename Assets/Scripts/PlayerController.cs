@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 startingPosition = new Vector2(7.4f, -5f);
 
-    public CinemachineConfiner cinemachineConfiner;
+    public CinemachineConfiner2D cinemachineConfiner;
 
     private void Start()
     {
@@ -29,20 +29,35 @@ public class PlayerController : MonoBehaviour
 
         if (cinemachineConfiner == null)
         {
-            GameObject virtualCameraObject = GameObject.FindGameObjectWithTag("VirtualCamera");
+            // Encontre o GameObject com a tag "Player" (que é o pai da câmera virtual)
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-            if (virtualCameraObject != null)
+            if (playerObject != null)
             {
-                cinemachineConfiner = virtualCameraObject.GetComponent<CinemachineConfiner>();
+                // Iterar sobre os filhos do player para encontrar o que tem a tag "VirtualCamera"
+                foreach (Transform child in playerObject.transform)
+                {
+                    if (child.CompareTag("VirtualCamera"))
+                    {
+                        // Encontrou o objeto com a tag "VirtualCamera", agora pegar o componente CinemachineConfiner
+                        cinemachineConfiner = child.GetComponent<CinemachineConfiner2D>();
+
+                        if (cinemachineConfiner == null)
+                        {
+                            Debug.LogError("CinemachineConfiner not found on the virtual camera.");
+                        }
+                        break;
+                    }
+                }
 
                 if (cinemachineConfiner == null)
                 {
-                    Debug.LogError("CinemachineConfiner not found on the virtual camera object.");
+                    Debug.LogError("No child with tag 'VirtualCamera' found under the player.");
                 }
             }
             else
             {
-                Debug.LogError("GameObject with tag 'VirtualCamera' not found in the scene.");
+                Debug.LogError("GameObject with tag 'Player' not found.");
             }
         }
 
@@ -189,13 +204,30 @@ public class PlayerController : MonoBehaviour
 
     void UpdateConfiner()
     {
-        PolygonCollider2D newConfinerShape = GameObject.FindObjectOfType<PolygonCollider2D>();
+        // Encontrar o GameObject com a tag "CameraBounds" que possui o PolygonCollider2D
+        GameObject boundsObject = GameObject.FindGameObjectWithTag("CameraBounds");
 
-        if (newConfinerShape != null && cinemachineConfiner != null)
+        if (boundsObject != null)
         {
-            cinemachineConfiner.m_BoundingShape2D = newConfinerShape;
+            PolygonCollider2D newConfinerShape = boundsObject.GetComponent<PolygonCollider2D>();
 
-            cinemachineConfiner.InvalidatePathCache();
+            // Verificar se o PolygonCollider2D e o CinemachineConfiner existem
+            if (newConfinerShape != null && cinemachineConfiner != null)
+            {
+                // Atualizar o Bounding Shape do CinemachineConfiner
+                cinemachineConfiner.m_BoundingShape2D = newConfinerShape;
+
+                // Invalidar o cache para que o CinemachineConfiner atualize o confinamento
+                //cinemachineConfiner.InvalidateCache();
+            }
+            else
+            {
+                Debug.LogError("PolygonCollider2D not found on the object with tag 'CameraBounds'.");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject with tag 'CameraBounds' not found.");
         }
     }
 

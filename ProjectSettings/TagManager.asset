@@ -21,6 +21,7 @@ TagManager:
   - Object
   - Dialogue
   - VirtualCamera
+  - CameraBounds
   layers:
   - Default
   - TransparentFX
