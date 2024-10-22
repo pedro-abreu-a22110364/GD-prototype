@@ -4474,7 +4474,7 @@ Transform:
   m_GameObject: {fileID: 1321936852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0011625588, y: 0.25929403, z: -10}
+  m_LocalPosition: {x: 0.0015276879, y: 0.25929603, z: -10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4659,6 +4659,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2126626837}
+  - {fileID: 1552975005}
   m_Father: {fileID: 1758847848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1337549832
@@ -5024,6 +5025,127 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 1004077592}
   m_Damping: 0.5
   m_MaxWindowSize: -1
+--- !u!1 &1552975004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1552975005}
+  - component: {fileID: 1552975007}
+  - component: {fileID: 1552975006}
+  m_Layer: 0
+  m_Name: ShardsoulUIArea2
+  m_TagString: Dialogue
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1552975005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552975004}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05, y: -0.4, z: -8.358705}
+  m_LocalScale: {x: -0.2, y: 0.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1337549831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552975006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552975004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e689aa581eae294292f5cb6eb2e21cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 91271900}
+  speakerText: {fileID: 2017350516}
+  dialogueText: {fileID: 437987843}
+  portraitImage: {fileID: 82117044}
+  speaker:
+  - Sad Monster
+  - Me
+  - Me
+  - Sad Monster
+  - Sad Monster
+  - Sad Monster
+  dialogueWords:
+  - '"Oh you''re back. You were gone for long so I thought you had followed that
+    player''s footsteps. I can''t trust players..."'
+  - '"He used the lever to go through a water gate and ended up flooding the whole
+    room. I can''t keep allowing things like this to happen. "'
+  - ' "I was going to confront him but I lost him in the meantime. But here-"'
+  - '"What is this... You really brought back my lever!?"'
+  - '"You''re the first player that has ever helped me. Because of that I might as
+    well help you out a bit. Take this key. You can use it to open a door on the
+    lower level."'
+  - '"There you might find and exit, but that means you might also find the other
+    player"'
+  portrait:
+  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
+  - {fileID: 21300000, guid: 664c0323bb650a54587c364d0d92d090, type: 3}
+  - {fileID: 21300000, guid: 664c0323bb650a54587c364d0d92d090, type: 3}
+  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
+  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
+  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
+  textSpeed: 0.1
+--- !u!61 &1552975007
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552975004}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1698299380
 GameObject:
   m_ObjectHideFlags: 0
@@ -8603,9 +8725,10 @@ GameObject:
   - component: {fileID: 2126626837}
   - component: {fileID: 2126626840}
   - component: {fileID: 2126626838}
+  - component: {fileID: 2126626841}
   m_Layer: 0
   m_Name: ShardsoulUIArea
-  m_TagString: Untagged
+  m_TagString: Dialogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8711,6 +8834,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2126626841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126626836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329936130816bb146a54c8dd4fd4dd78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerActive: 0
+  dialogueTriggerActive: 0
+  actionObject: {fileID: 2126626836}
+  reactionObject: {fileID: 1552975004}
+  actionObjectSpriteArray: []
+  reactionObjectSpriteArray: []
+  storedObjects: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

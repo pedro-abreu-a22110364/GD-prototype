@@ -19,6 +19,7 @@ TagManager:
   - ExitSecurityRoomToStart
   - Character
   - Object
+  - Dialogue
   layers:
   - Default
   - TransparentFX

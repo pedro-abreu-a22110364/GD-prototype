@@ -62,14 +62,15 @@ public class GameManager : MonoBehaviour
 
     public void InteractWithObject(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray, string[] storedObjects)
     {
-        inventory.UnionWith(storedObjects); // Add stored objects to inventory
 
         switch (actionObject.name)
         {
             case "Chest":
+                inventory.UnionWith(storedObjects); // Add stored objects to inventory
                 isChestOpen = true;
                 break;
             case "ChestSewer":
+                inventory.UnionWith(storedObjects);
                 isChestSewerOpen = true;
                 break;
             case "Lever":
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
                 {
                     isLeverBroken = true;
                     inventory.Remove("hammer");
+                    inventory.UnionWith(storedObjects);
                 }
                 else
                 {
@@ -190,27 +192,12 @@ public class GameManager : MonoBehaviour
     public void PushButton(GameObject button, Sprite[] buttonSpriteArray)
     {
         button.GetComponent<SpriteRenderer>().sprite = buttonSpriteArray[0];
-
-        switch (button.name)
-        {
-            case "Button1":
-                DeleteObject("Button1Collider");
-                break;
-            case "Button2":
-                DeleteObject("Button2Collider");
-                break;
-            case "Button3":
-                DeleteObject("Button3Collider");
-                break;
-            case "Button4":
-                DeleteObject("Button4Collider");
-                break;
-        }        
+        DeleteObject(button.name + "Collider");     
     }
     public void OpenChest(GameObject chest, Sprite[] chestSpriteArray)
     {
         chest.GetComponent<SpriteRenderer>().sprite = chestSpriteArray[0];
-        DeleteObject("ChestUIArea");
+        DeleteObject(chest.name + "UIArea");
     }
 
     public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
@@ -224,7 +211,7 @@ public class GameManager : MonoBehaviour
     public void BreakLever(GameObject lever, Sprite[] leverSpriteArray)
     {
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[1];
-        DeleteObject("LeverUIArea");
+        DeleteObject(lever.name + "UIArea");
     }
 
     public void DrainRoom()
@@ -235,28 +222,13 @@ public class GameManager : MonoBehaviour
     public void OpenDoor(GameObject door, Sprite[] doorSpriteArray)
     {
         GameObject doorParts;
-        switch (door.name)
+        doorParts = GameObject.Find(door.name + "Parts");
+        for (int i = 0; i < doorParts.transform.childCount; i++)
         {
-            case "HomeDoor":
-                doorParts = GameObject.Find(door.name + "Parts");
-                for (int i = 0; i < doorParts.transform.childCount; i++)
-                {
-                    doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
-                }
-                DeleteObject("HomeDoorBoundary");
-                DeleteObject("HomeDoorUIArea");
-                break;
-            case "SewerDoor":
-                doorParts = GameObject.Find(door.name + "Parts");
-                for (int i = 0; i < doorParts.transform.childCount; i++)
-                {
-                    doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
-                }
-                DeleteObject("SewerDoorBoundary");
-                DeleteObject("SewerDoorUIArea");
-                break;
-
+            doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
         }
+        DeleteObject(door.name + "Boundary");
+        DeleteObject(door.name + "UIArea");
     }
 
     public void CloseDoor(GameObject door, Sprite[] doorSpriteArray)
@@ -297,5 +269,22 @@ public class GameManager : MonoBehaviour
     public bool IsDialogueActive()
     {
         return isDialogueActive;
+    }
+
+    public void ManageDialogue(GameObject dialogue, GameObject reactionObject)
+    {
+        Debug.Log("managing dialogue");
+        Debug.Log(dialogue.name);
+        switch (dialogue.name)
+        {
+            case "ShardsoulUIArea":
+                if (inventory.Contains("lever"))
+                {
+                    dialogue.SetActive(false);
+                    reactionObject.SetActive(true);
+                    //inventory.Remove("lever");
+                }
+                break;
+        }
     }
 }

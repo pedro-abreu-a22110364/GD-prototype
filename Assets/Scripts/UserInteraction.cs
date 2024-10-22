@@ -6,6 +6,8 @@ public class UserInteraction : MonoBehaviour
 {
     [SerializeField] private bool triggerActive = false;
 
+    [SerializeField] private bool dialogueTriggerActive = false;
+
     public GameObject actionObject;
     public GameObject reactionObject;
     public Sprite[] actionObjectSpriteArray;
@@ -22,6 +24,10 @@ public class UserInteraction : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             triggerActive = true;
+            if (actionObject.CompareTag("Dialogue"))
+            {
+                dialogueTriggerActive = true;
+            }
         }
     }
 
@@ -30,14 +36,26 @@ public class UserInteraction : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             triggerActive = false;
+            if (actionObject.CompareTag("Dialogue"))
+            {
+                dialogueTriggerActive = false;
+            }
         }
     }
 
     private void Update()
     {
-        if (triggerActive && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray, storedObjects);
+            if (dialogueTriggerActive)
+            {
+                GameManager.Instance.ManageDialogue(actionObject, reactionObject);
+            }
+            if (triggerActive)
+            {
+                GameManager.Instance.InteractWithObject(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray, storedObjects);
+            }
         }
+        
     }
 }
