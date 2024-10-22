@@ -171,16 +171,28 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case "Button1":
-                isButton1Pressed = true;
+                if (isButton1Pressed)
+                {
+                    PushButton(actionObject, actionObjectSpriteArray);
+                }
                 break;
             case "Button2":
-                isButton2Pressed = true;
+                if (isButton2Pressed)
+                {
+                    PushButton(actionObject, actionObjectSpriteArray);
+                }
                 break;
             case "Button3":
-                isButton3Pressed = true;
+                if (isButton3Pressed)
+                {
+                    PushButton(actionObject, actionObjectSpriteArray);
+                }
                 break;
             case "Button4":
-                isButton4Pressed = true;
+                if (isButton4Pressed)
+                {
+                    PushButton(actionObject, actionObjectSpriteArray);
+                }
                 break;
         }
     }

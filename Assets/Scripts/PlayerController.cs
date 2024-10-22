@@ -29,17 +29,14 @@ public class PlayerController : MonoBehaviour
 
         if (cinemachineConfiner == null)
         {
-            // Encontre o GameObject com a tag "Player" (que é o pai da câmera virtual)
             GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
             if (playerObject != null)
             {
-                // Iterar sobre os filhos do player para encontrar o que tem a tag "VirtualCamera"
                 foreach (Transform child in playerObject.transform)
                 {
                     if (child.CompareTag("VirtualCamera"))
                     {
-                        // Encontrou o objeto com a tag "VirtualCamera", agora pegar o componente CinemachineConfiner
                         cinemachineConfiner = child.GetComponent<CinemachineConfiner2D>();
 
                         if (cinemachineConfiner == null)
@@ -156,7 +153,7 @@ public class PlayerController : MonoBehaviour
             case "ExitEndStartToEnd":
                 SceneManager.LoadScene("Scenes/End");
 
-                startingPosition = new Vector2(3f, 3f);
+                startingPosition = new Vector2(7.5f, -5f);
                 ChangePosition();
                 UpdateConfiner();
                 break;
@@ -204,21 +201,17 @@ public class PlayerController : MonoBehaviour
 
     void UpdateConfiner()
     {
-        // Encontrar o GameObject com a tag "CameraBounds" que possui o PolygonCollider2D
         GameObject boundsObject = GameObject.FindGameObjectWithTag("CameraBounds");
 
         if (boundsObject != null)
         {
             PolygonCollider2D newConfinerShape = boundsObject.GetComponent<PolygonCollider2D>();
 
-            // Verificar se o PolygonCollider2D e o CinemachineConfiner existem
             if (newConfinerShape != null && cinemachineConfiner != null)
             {
-                // Atualizar o Bounding Shape do CinemachineConfiner
                 cinemachineConfiner.m_BoundingShape2D = newConfinerShape;
 
-                // Invalidar o cache para que o CinemachineConfiner atualize o confinamento
-                //cinemachineConfiner.InvalidateCache();
+                cinemachineConfiner.InvalidateCache();
             }
             else
             {
