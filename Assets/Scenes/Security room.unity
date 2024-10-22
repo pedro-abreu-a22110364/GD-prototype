@@ -6210,6 +6210,7 @@ GameObject:
   - component: {fileID: 1211606361}
   - component: {fileID: 1211606360}
   - component: {fileID: 1211606362}
+  - component: {fileID: 1211606363}
   m_Layer: 0
   m_Name: ChestUIArea
   m_TagString: Untagged
@@ -6298,6 +6299,29 @@ MonoBehaviour:
   reactionObjectSpriteArray: []
   storedObjects:
   - homeDoorKey
+--- !u!114 &1211606363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211606358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e689aa581eae294292f5cb6eb2e21cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 2096635312}
+  speakerText: {fileID: 1517811902}
+  dialogueText: {fileID: 1120654738}
+  portraitImage: {fileID: 1038737642}
+  speaker:
+  - Me
+  dialogueWords:
+  - So that's where I left my key
+  portrait:
+  - {fileID: 21300000, guid: 664c0323bb650a54587c364d0d92d090, type: 3}
+  textSpeed: 0.1
 --- !u!1 &1388585332
 GameObject:
   m_ObjectHideFlags: 0

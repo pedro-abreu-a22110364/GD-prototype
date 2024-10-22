@@ -63,22 +63,20 @@ public class GameManager : MonoBehaviour
     public void InteractWithObject(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray, string[] storedObjects)
     {
 
+        inventory.UnionWith(storedObjects); // Add stored objects to inventory
+
         switch (actionObject.name)
         {
             case "Chest":
-                inventory.UnionWith(storedObjects); // Add stored objects to inventory
                 isChestOpen = true;
                 break;
             case "ChestSewer":
-                inventory.UnionWith(storedObjects);
                 isChestSewerOpen = true;
                 break;
             case "Lever":
-                if (isLeverPulled && inventory.Contains("hammer"))
+                if (isLeverPulled)
                 {
-                    isLeverBroken = true;
-                    inventory.Remove("hammer");
-                    inventory.UnionWith(storedObjects);
+                    isLeverBroken = RemoveFromInventory("hammer");
                 }
                 else
                 {
@@ -91,10 +89,9 @@ public class GameManager : MonoBehaviour
                     isHomeDoorOpen = true;
                     actionObject.transform.position += new Vector3(-0.3f, 0);
                 }
-                else if(inventory.Contains("homeDoorKey"))
+                else
                 {
-                    isHomeDoorUnlocked = true;
-                    inventory.Remove("homeDoorKey");
+                    isHomeDoorUnlocked = RemoveFromInventory("homeDoorKey");
                 }
                 break;
             case "SewerDoor":
@@ -103,10 +100,9 @@ public class GameManager : MonoBehaviour
                     isSewerDoorOpen = true;
                     actionObject.transform.position += new Vector3(-0.3f, 0);
                 }
-                else if (inventory.Contains("lever"))
+                else
                 {
-                    isSewerDoorUnlocked = true;
-                    inventory.Remove("lever");
+                    isSewerDoorUnlocked = RemoveFromInventory("lever");
                 }
                 break;
             case "Button1":
@@ -197,7 +193,6 @@ public class GameManager : MonoBehaviour
     public void OpenChest(GameObject chest, Sprite[] chestSpriteArray)
     {
         chest.GetComponent<SpriteRenderer>().sprite = chestSpriteArray[0];
-        DeleteObject(chest.name + "UIArea");
     }
 
     public void PullLever(GameObject lever, Sprite[] leverSpriteArray, GameObject door, Sprite[] doorSpriteArray)
@@ -211,7 +206,6 @@ public class GameManager : MonoBehaviour
     public void BreakLever(GameObject lever, Sprite[] leverSpriteArray)
     {
         lever.transform.gameObject.GetComponent<SpriteRenderer>().sprite = leverSpriteArray[1];
-        DeleteObject(lever.name + "UIArea");
     }
 
     public void DrainRoom()
@@ -273,8 +267,6 @@ public class GameManager : MonoBehaviour
 
     public void ManageDialogue(GameObject dialogue, GameObject reactionObject)
     {
-        Debug.Log("managing dialogue");
-        Debug.Log(dialogue.name);
         switch (dialogue.name)
         {
             case "ShardsoulUIArea":
@@ -286,5 +278,10 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public bool RemoveFromInventory(string objName)
+    {
+        return inventory.Remove(objName);
     }
 }
