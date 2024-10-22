@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    public Vector2 startingPosition = new Vector2(-10.5f, 0.5f);
+    public Vector2 startingPosition = new Vector2(7.4f, -5f);//-10.5f, 0.5f);
 
     private void Start()
     {
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             case "ExitEndStartToEnd":
                 SceneManager.LoadScene("Scenes/End");
 
-                startingPosition = new Vector2(7.5f, -6f);
+                startingPosition = new Vector2(7.4f, -5f);
                 ChangePosition();
                 break;
             case "ExitEndToEndStart":
