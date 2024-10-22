@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
             case "Lever":
                 if (isLeverPulled)
                 {
-                    isLeverBroken = RemoveFromInventory("hammer");
+                    isLeverBroken = inventory.Contains("lever") || RemoveFromInventory("hammer");
                 }
                 else
                 {
@@ -286,7 +286,6 @@ public class GameManager : MonoBehaviour
                 {
                     dialogue.SetActive(false);
                     reactionObject.SetActive(true);
-                    //inventory.Remove("lever");
                     inventory.Add("sewerKey");
                 }
                 break;
