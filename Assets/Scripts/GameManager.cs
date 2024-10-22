@@ -300,7 +300,7 @@ public class GameManager : MonoBehaviour
         return inventory.Remove(objName);
     }
 
-    public void TriggerText(string message)
+    public void TriggerText()
     {
         finalText.gameObject.SetActive(true);
     }
