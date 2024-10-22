@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    isSewerDoorUnlocked = RemoveFromInventory("lever");
+                    isSewerDoorUnlocked = RemoveFromInventory("sewerKey");
                 }
                 break;
             case "Button1":
@@ -287,6 +287,7 @@ public class GameManager : MonoBehaviour
                     dialogue.SetActive(false);
                     reactionObject.SetActive(true);
                     //inventory.Remove("lever");
+                    inventory.Add("sewerKey");
                 }
                 break;
         }
