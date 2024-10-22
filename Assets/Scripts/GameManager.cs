@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 using UnityEngine.Tilemaps;
 using System;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public bool isButton3Pressed { get; set; }
     public bool isButton4Pressed { get; set; }
     public HashSet<string> inventory { get; set; } = new HashSet<string>();
+    public Text finalText;
 
     #region Singleton
     public static GameManager Instance
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
         if (isButton1Pressed && isButton2Pressed && isButton3Pressed && isButton4Pressed)
         {
             Debug.Log("You won");
+            TriggerText();
         }
     }
 
@@ -295,5 +298,10 @@ public class GameManager : MonoBehaviour
     public bool RemoveFromInventory(string objName)
     {
         return inventory.Remove(objName);
+    }
+
+    public void TriggerText(string message)
+    {
+        finalText.gameObject.SetActive(true);
     }
 }
