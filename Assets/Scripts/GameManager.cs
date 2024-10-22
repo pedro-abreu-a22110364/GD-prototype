@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public bool isChestOpen { get; set; }
+    public bool isChestSewerOpen { get; set; }
     public bool isLeverPulled { get; set; }
     public bool isLeverBroken { get; set; }
     public bool hasHammer { get; set; }
     public bool isHomeDoorOpen { get; set; }
     public bool isHomeDoorUnlocked { get; set; }
+    public bool isSewerDoorOpen { get; set; }
+    public bool isSewerDoorUnlocked { get; set; }
     public bool isDialogueActive { get; set; }
     public bool isButton1Pressed { get; set; }
     public bool isButton2Pressed { get; set; }
@@ -66,6 +69,9 @@ public class GameManager : MonoBehaviour
             case "Chest":
                 isChestOpen = true;
                 break;
+            case "ChestSewer":
+                isChestSewerOpen = true;
+                break;
             case "Lever":
                 if (isLeverPulled && inventory.Contains("hammer"))
                 {
@@ -87,6 +93,18 @@ public class GameManager : MonoBehaviour
                 {
                     isHomeDoorUnlocked = true;
                     inventory.Remove("homeDoorKey");
+                }
+                break;
+            case "SewerDoor":
+                if (isSewerDoorUnlocked)
+                {
+                    isSewerDoorOpen = true;
+                    actionObject.transform.position += new Vector3(-0.3f, 0);
+                }
+                else if (inventory.Contains("lever"))
+                {
+                    isSewerDoorUnlocked = true;
+                    inventory.Remove("lever");
                 }
                 break;
             case "Button1":
@@ -115,6 +133,12 @@ public class GameManager : MonoBehaviour
                     OpenChest(actionObject, actionObjectSpriteArray);
                 }
                 break;
+            case "ChestSewer":
+                if (isChestSewerOpen)
+                {
+                    OpenChest(actionObject, actionObjectSpriteArray);
+                }
+                break;
             case "Lever":
                 if (isLeverPulled)
                 {
@@ -133,6 +157,16 @@ public class GameManager : MonoBehaviour
                 {
                     OpenLock(reactionObject);
                     if (isHomeDoorOpen)
+                    {
+                        OpenDoor(actionObject, actionObjectSpriteArray);
+                    }
+                }
+                break;
+            case "SewerDoor":
+                if (isSewerDoorUnlocked)
+                {
+                    OpenLock(reactionObject);
+                    if (isSewerDoorOpen)
                     {
                         OpenDoor(actionObject, actionObjectSpriteArray);
                     }
@@ -200,13 +234,29 @@ public class GameManager : MonoBehaviour
 
     public void OpenDoor(GameObject door, Sprite[] doorSpriteArray)
     {
-        GameObject doorParts = GameObject.Find(door.name + "Parts");
-        for (int i = 0; i < doorParts.transform.childCount; i++)
+        GameObject doorParts;
+        switch (door.name)
         {
-            doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+            case "HomeDoor":
+                doorParts = GameObject.Find(door.name + "Parts");
+                for (int i = 0; i < doorParts.transform.childCount; i++)
+                {
+                    doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+                }
+                DeleteObject("HomeDoorBoundary");
+                DeleteObject("HomeDoorUIArea");
+                break;
+            case "SewerDoor":
+                doorParts = GameObject.Find(door.name + "Parts");
+                for (int i = 0; i < doorParts.transform.childCount; i++)
+                {
+                    doorParts.transform.GetChild(i).gameObject.GetComponent<SpriteRenderer>().sprite = doorSpriteArray[i];
+                }
+                DeleteObject("SewerDoorBoundary");
+                DeleteObject("SewerDoorUIArea");
+                break;
+
         }
-        DeleteObject("HomeDoorBoundary");
-        DeleteObject("HomeDoorUIArea");
     }
 
     public void CloseDoor(GameObject door, Sprite[] doorSpriteArray)
