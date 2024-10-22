@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             case "ExitEndStartToEnd":
                 SceneManager.LoadScene("Scenes/End");
 
-                startingPosition = new Vector2(5f, 0f);
+                startingPosition = new Vector2(3f, 3f);
                 ChangePosition();
                 break;
             case "ExitEndToEndStart":
