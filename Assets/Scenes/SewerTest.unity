@@ -3320,7 +3320,6 @@ GameObject:
   - component: {fileID: 1484913013}
   - component: {fileID: 1484913016}
   - component: {fileID: 1484913015}
-  - component: {fileID: 1484913014}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -3349,40 +3348,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5, y: -345}
   m_SizeDelta: {x: -90, y: -790}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1484913014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484913012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e689aa581eae294292f5cb6eb2e21cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 209979906}
-  dialogueCanvas: {fileID: 2143654981}
-  speakerText: {fileID: 1850330280}
-  dialogueText: {fileID: 209979906}
-  portraitImage: {fileID: 615709383}
-  speaker:
-  - Moshi
-  - Moshi
-  - Moi
-  dialogueWords:
-  - My wife just left me and now this fucker shows up
-  - I would rip his head off if only that wouldn't make me lose custody of the kids
-  - ...what?
-  portrait:
-  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
-  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
-  - {fileID: 21300000, guid: 664c0323bb650a54587c364d0d92d090, type: 3}
-  lines:
-  - Hello, my name is X
-  - Would you help me recover Y?
-  - Actually My friend needs help too
-  textSpeed: 0.1
 --- !u!114 &1484913015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4125,6 +4090,7 @@ GameObject:
   - component: {fileID: 1981451583}
   - component: {fileID: 1981451585}
   - component: {fileID: 1981451584}
+  - component: {fileID: 1981451586}
   m_Layer: 0
   m_Name: CyclopsUIArea
   m_TagString: Untagged
@@ -4210,6 +4176,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1981451586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981451582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e689aa581eae294292f5cb6eb2e21cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 209979906}
+  dialogueCanvas: {fileID: 2143654981}
+  speakerText: {fileID: 1850330280}
+  dialogueText: {fileID: 209979906}
+  portraitImage: {fileID: 615709383}
+  speaker:
+  - Moshi
+  - Moshi
+  - Moi
+  dialogueWords:
+  - My wife just left me and now this fucker shows up
+  - I would rip his head off if only that wouldn't make me lose custody of the kids
+  - ...what?
+  portrait:
+  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
+  - {fileID: 21300000, guid: 8fa294236fbeefa4cae1853855af208d, type: 3}
+  - {fileID: 21300000, guid: 664c0323bb650a54587c364d0d92d090, type: 3}
+  textSpeed: 0.1
 --- !u!1 &1988671296
 GameObject:
   m_ObjectHideFlags: 3

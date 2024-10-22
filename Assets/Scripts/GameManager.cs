@@ -182,7 +182,6 @@ public class GameManager : MonoBehaviour
         if (!isDialogueActive)
         {
             isDialogueActive = true;
-            Dialogue.Instance.StartDialogue();
         }
     }
 

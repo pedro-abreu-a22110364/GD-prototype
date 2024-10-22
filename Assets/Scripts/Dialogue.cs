@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    private static Dialogue _instance;
     public TextMeshProUGUI textComponent;
 
     [SerializeField]
@@ -32,22 +31,6 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
     private int index = -1;
     private bool isActive = false;
-    public static Dialogue Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                Debug.Log("Dialogue is NULL");
-            }
-            return _instance;
-        }
-    }
-
-    private void Awake()
-    {
-        _instance = this;
-    }
 
     private void Start()
     {
@@ -56,7 +39,11 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if (isActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)))
+        if(GameManager.Instance.IsDialogueActive() && !isActive)
+        {
+            StartDialogue();
+        }
+        else if (isActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)))
         {
             if (dialogueText.text == dialogueWords[index])
             {
@@ -82,7 +69,6 @@ public class Dialogue : MonoBehaviour
     IEnumerator TypeLine()
     {
         speakerText.text = speaker[index];
-        //dialogueText.text = dialogueWords[index];
         portraitImage.sprite = portrait[index];
 
         foreach (char c in dialogueWords[index].ToCharArray())
