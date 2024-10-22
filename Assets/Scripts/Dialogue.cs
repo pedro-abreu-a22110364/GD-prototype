@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextMeshProUGUI textComponent;
 
     [SerializeField]
     private GameObject dialogueCanvas;
@@ -32,6 +31,8 @@ public class Dialogue : MonoBehaviour
     private int index = -1;
     private bool isActive = false;
 
+    private bool ísTriggerActive = false;
+
     private void Start()
     {
         dialogueCanvas.SetActive(false);
@@ -39,26 +40,47 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.IsDialogueActive() && !isActive)
+        if (ísTriggerActive) 
         {
-            StartDialogue();
+            if(!isActive && Input.GetKeyDown(KeyCode.E))
+            {
+                StartDialogue();
+            }
+            else if (isActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)))
+            {
+                if (dialogueText.text == dialogueWords[index])
+                {
+                    NextLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    dialogueText.text = dialogueWords[index];
+                }
+            }
         }
-        else if (isActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)))
+        
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            if (dialogueText.text == dialogueWords[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                dialogueText.text = dialogueWords[index];
-            }
+            ísTriggerActive = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            ísTriggerActive = false;
         }
     }
 
     public void StartDialogue()
     {
+        GameManager.Instance.ActivateDialogue();
         dialogueText.text = string.Empty;
         isActive = true;
         index = 0;
