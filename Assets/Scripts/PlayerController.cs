@@ -136,6 +136,12 @@ public class PlayerController : MonoBehaviour
                 startingPosition = new Vector2(6.5f, -4f);
                 ChangePosition();
                 break;
+            case "ExitSecurityRoomToStart":
+                SceneManager.LoadScene("Scenes/Start");
+
+                startingPosition = new Vector2(-8.5f, -5.25f);
+                ChangePosition();
+                break;
         }
     }
     void ChangePosition()

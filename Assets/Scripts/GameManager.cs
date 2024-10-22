@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public bool isHomeDoorOpen { get; set; }
     public bool isHomeDoorUnlocked { get; set; }
     public bool isDialogueActive { get; set; }
+    public bool isButton1Pressed { get; set; }
+    public bool isButton2Pressed { get; set; }
+    public bool isButton3Pressed { get; set; }
+    public bool isButton4Pressed { get; set; }
     public HashSet<string> inventory { get; set; } = new HashSet<string>();
 
     #region Singleton
@@ -45,6 +49,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     #endregion
+    private void FixedUpdate()
+    {
+        if (isButton1Pressed && isButton2Pressed && isButton3Pressed && isButton4Pressed)
+        {
+            Debug.Log("You won");
+        }
+    }
 
     public void InteractWithObject(GameObject actionObject, Sprite[] actionObjectSpriteArray, GameObject reactionObject, Sprite[] reactionObjectSpriteArray, string[] storedObjects)
     {
@@ -77,6 +88,18 @@ public class GameManager : MonoBehaviour
                     isHomeDoorUnlocked = true;
                     inventory.Remove("homeDoorKey");
                 }
+                break;
+            case "Button1":
+                isButton1Pressed = true;
+                break;
+            case "Button2":
+                isButton2Pressed = true;
+                break;
+            case "Button3":
+                isButton3Pressed = true;
+                break;
+            case "Button4":
+                isButton4Pressed = true;
                 break;
         }
         SetCorrectObjectSprites(actionObject, actionObjectSpriteArray, reactionObject, reactionObjectSpriteArray);
@@ -115,9 +138,41 @@ public class GameManager : MonoBehaviour
                     }
                 }
                 break;
+            case "Button1":
+                isButton1Pressed = true;
+                break;
+            case "Button2":
+                isButton2Pressed = true;
+                break;
+            case "Button3":
+                isButton3Pressed = true;
+                break;
+            case "Button4":
+                isButton4Pressed = true;
+                break;
         }
     }
 
+    public void PushButton(GameObject button, Sprite[] buttonSpriteArray)
+    {
+        button.GetComponent<SpriteRenderer>().sprite = buttonSpriteArray[0];
+
+        switch (button.name)
+        {
+            case "Button1":
+                DeleteObject("Button1Collider");
+                break;
+            case "Button2":
+                DeleteObject("Button2Collider");
+                break;
+            case "Button3":
+                DeleteObject("Button3Collider");
+                break;
+            case "Button4":
+                DeleteObject("Button4Collider");
+                break;
+        }        
+    }
     public void OpenChest(GameObject chest, Sprite[] chestSpriteArray)
     {
         chest.GetComponent<SpriteRenderer>().sprite = chestSpriteArray[0];
